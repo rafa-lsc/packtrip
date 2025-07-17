@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter , Girassol, Poppins} from "next/font/google";
+import { Inter , Girassol, Poppins, Open_Sans} from "next/font/google";
 import Header from "@/components/Header";
 import "./globals.css";
 
@@ -20,6 +20,10 @@ export const poppins = Poppins({
   weight: ['400'],
 })
 
+export const openSans = Open_Sans({
+  subsets: ['latin'],
+  variable: "--font-open-sans",
+})
 
 export const metadata: Metadata = {
   title: "PackTrip",
@@ -33,11 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${inter.variable}  antialiased`}
+      <body   
+        className={`${inter.variable}  antialiased min-h-screen flex flex-col`}
       >
         <Header/>
-        {children}
+        <main className="flex-1 flex flex-col">{children}</main>
       </body>
     </html>
   );

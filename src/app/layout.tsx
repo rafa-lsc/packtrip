@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter , Girassol, Poppins, Open_Sans} from "next/font/google";
+import { Inter , Girassol, Poppins, Montserrat} from "next/font/google";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,7 +21,7 @@ export const poppins = Poppins({
   weight: ['400'],
 })
 
-export const openSans = Open_Sans({
+export const montserrat = Montserrat({
   subsets: ['latin'],
   variable: "--font-open-sans",
 })
@@ -42,6 +43,7 @@ export default function RootLayout({
       >
         <Header/>
         <main className="flex-1 flex flex-col">{children}</main>
+        <Footer/>
       </body>
     </html>
   );

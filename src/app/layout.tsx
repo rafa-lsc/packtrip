@@ -1,11 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter , Girassol, Poppins} from "next/font/google";
 import Header from "@/components/Header";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets:["latin"]
+})
+
+export const girassol = Girassol({
+  subsets: ['latin'],
+  variable: "--font-girassol",
+  weight: ['400'],
+})
+
+export const poppins = Poppins({
+  subsets: ['latin'],
+  variable: "--font-poppins",
+  weight: ['400'],
 })
 
 

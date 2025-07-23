@@ -8,8 +8,6 @@ export type ViagemData = {
     touristic: string;
     staying: string;
 
-
-
 }
 
 export const viagensdatas: ViagemData[] = [

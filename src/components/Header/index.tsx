@@ -1,4 +1,5 @@
 import { girassol, poppins } from "@/app/layout";
+import Link from "next/link";
 import { Plane, Luggage } from "lucide-react";
 export default function Header() {
   return (
@@ -9,20 +10,20 @@ export default function Header() {
           className={`flex flex-row w-1/2 justify-end gap-5 text-sm ${poppins.className}`}
         >
           <li className="hover:bg-secondary flex justify-center items-center w-fit px-2 py-0 rounded-3xl transition-colors ease-in">
-            <a href="/viagens" className="w-fit h-fit p-0 flex items-center ">
+            <Link href="/viagens" className="w-fit h-fit p-0 flex items-center ">
               
               <Plane color={"var(--primary)"} className="sm:hidden" />
               <span className="hidden sm:block text-sm md:text-xl ">Minhas viagens</span>
-            </a>
+            </Link>
           </li>
           <li className="hover:bg-secondary flex justify-center items-center w-fit px-2 py-0 rounded-3xl transition-colors ease-in">
-            <a
+            <Link
               href="/mala-virtual"
               className="w-fit h-fit p-0 flex items-center"
             >
               <Luggage color={"var(--primary)"} className="sm:hidden" />
               <span className="hidden sm:block text-sm md:text-xl  ">Mala Virtual</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

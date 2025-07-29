@@ -1,6 +1,6 @@
 
 import LargeButton from "@/components/LargeButton";
-import { montserrat } from "./layout";
+import { montserrat } from "@/lib/fonts";
 export default function Home() {
   return (
     <div className="flex-1 w-full flex  justify-center">

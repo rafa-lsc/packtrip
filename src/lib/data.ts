@@ -7,9 +7,13 @@ export type ViagemData = {
     date_out:string;
     touristic: string;
     staying: string;
-
 }
-
+export type ItemList = {
+    id: string;
+    name: string;
+    quantity: number;
+    category: string;
+}
 export const viagensdatas: ViagemData[] = [
     {
         id: "1",
@@ -42,3 +46,10 @@ export const viagensdatas: ViagemData[] = [
         staying: "Hotel Lisboa",
     }
 ]
+
+export const listaItens: ItemList[] = [
+    { id: '1', name: "Camisetas", quantity: 3, category: "Roupas" },
+    { id: '2', name: "Escova de dentes", quantity: 2, category: "Higiene" },
+    { id: '3', name: "Carregador", quantity: 1, category: "Eletrônicos" },
+    { id: '4', name: "Shorts", quantity: 2, category: "Roupas" },
+  ];

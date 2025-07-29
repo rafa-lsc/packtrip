@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
-import { poppins } from "@/app/layout";
-
+import { poppins } from "@/lib/fonts";
 interface LargeButtonProps {
   text: string;
   route?: string;

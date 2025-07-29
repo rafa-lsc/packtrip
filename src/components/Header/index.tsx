@@ -1,4 +1,6 @@
-import { girassol, poppins } from "@/app/layout";
+
+import { girassol } from "@/lib/fonts";
+import { poppins } from "@/lib/fonts";
 import Link from "next/link";
 import { Plane, Luggage } from "lucide-react";
 export default function Header() {

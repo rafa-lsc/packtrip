@@ -199,7 +199,7 @@ export default function MalaVirtualPage() {
                   />
                 ))
               ) : (
-                <span className="text-red-400">Nenhum item corresponde</span>
+                <span className="text-red-400">Nenhum item correspondente</span>
               )}
             </div>
           </div>

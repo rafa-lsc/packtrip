@@ -19,6 +19,10 @@ export default function MalaVirtualPage() {
   const [items, setItems] = useState<ItemListType[]>([]);
   const [editingItem, setEditingItem] = useState<ItemListType | null>(null);
   const [deletingItem, setDeletingItem] = useState<ItemListType | null>(null);
+  const [searchSentence, setSearchSentence] = useState("");
+  const [filteredItems, setFilteredItems] = useState<ItemListType[]>([]);
+  
+
 
   const {
     register,
@@ -36,7 +40,19 @@ export default function MalaVirtualPage() {
       setItems(data);
     };
     fetchItems();
+    setFilteredItems(items)
   }, []);
+
+  useEffect(() => {
+    setFilteredItems(
+      items.filter((item) =>
+        item.name.toLowerCase().includes(searchSentence.toLowerCase()) ||
+        item.category.toLowerCase().includes(searchSentence.toLowerCase()) ||
+        item.quantity.toString().includes(searchSentence.toLowerCase())
+      )
+    );
+  }, [searchSentence, items]);
+  
 
   const onSubmit = (data: ListItemFormData) => {
     const newItem: ItemListType = {
@@ -111,8 +127,10 @@ export default function MalaVirtualPage() {
               <input
                 type="number"
                 defaultValue={1}
+                
                 className="w-20 border border-gray-300 rounded-md px-3 py-2 focus:outline-none"
                 {...register("quantity")}
+                
               />
               {errors.quantity && (
                 <span className="text-sm text-red-500">{errors.quantity.message}</span>
@@ -127,8 +145,9 @@ export default function MalaVirtualPage() {
               <Search color="gray" size={20} />
               <input
                 type="text"
-                placeholder="Buscar por nome/categoria"
+                placeholder="Buscar por nome/quantidade/categoria"
                 className="w-full border-0 px-4 py-2 focus:outline-none"
+                onChange={(e) => setSearchSentence(e.target.value)} 
               />
             </div>
           </div>
@@ -136,7 +155,7 @@ export default function MalaVirtualPage() {
           <div>
             <h3 className="font-semibold mb-2">Lista de Itens:</h3>
             <div className="flex flex-col gap-3">
-              {items.map((item) => (
+              {filteredItems.map((item) => (
                 <ItemList
                 id={item.id}
                   key={item.id}

@@ -1,4 +1,3 @@
-// lib/fonts.ts
 import { Inter , Girassol, Poppins, Montserrat } from "next/font/google";
 
 export const inter = Inter({

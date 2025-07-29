@@ -8,8 +8,9 @@ export type ViagemData = {
     touristic: string;
     staying: string;
 }
-export type ItemList = {
+export type ItemListType = {
     id: string;
+    marked?:boolean;
     name: string;
     quantity: number;
     category: string;
@@ -46,10 +47,3 @@ export const viagensdatas: ViagemData[] = [
         staying: "Hotel Lisboa",
     }
 ]
-
-export const listaItens: ItemList[] = [
-    { id: '1', name: "Camisetas", quantity: 3, category: "Roupas" },
-    { id: '2', name: "Escova de dentes", quantity: 2, category: "Higiene" },
-    { id: '3', name: "Carregador", quantity: 1, category: "Eletrônicos" },
-    { id: '4', name: "Shorts", quantity: 2, category: "Roupas" },
-  ];

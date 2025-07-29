@@ -1,3 +1,4 @@
+//TODO: touristic deve ser um vetor de strings
 export type ViagemData = {
     id: string;
     destination: string;
@@ -6,6 +7,7 @@ export type ViagemData = {
     date_in: string
     date_out:string;
     touristic: string;
+    
     staying: string;
 }
 export type ItemListType = {

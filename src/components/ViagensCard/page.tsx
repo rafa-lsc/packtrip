@@ -6,6 +6,7 @@ import image from "next/image";
 import { Trash, Trash2 } from "lucide-react";
 import { Pen } from "lucide-react";
 import LargeButton from "../LargeButton";
+import Link from "next/link";
 
 interface ViagemCardProps{
     viagemdata: ViagemData
@@ -28,7 +29,12 @@ interface ViagemCardProps{
                     </div>
                     <h2 className="font-bold text-purple-1100 text-xl ml-3 mt-2 "> {viagemdata.destination}</h2>
                     <div className="ml-3 mb-2 mt-3 mr-3 text-lg flex "> 
-                        <LargeButton text="cadastro" route="/Viagens" />
+                        <Link
+                            href={`/viagemComplete/${viagemdata.id}`}
+                            className="px-4 py-1 bg-purple-600 text-white rounded hover:bg-purple-700 transition-colors"
+                        >
+                        Ver Detalhes
+                        </Link>
                         <button className=" flex items-center justify-center ml-2 border-2 border-gray-400 rounded-md hover:bg-gray-200 transition-colors p-1 min-w-13 "> <Trash2/></button>
                         <button className="flex items-center justify-center ml-2 border-2 border-gray-400 rounded-md hover:bg-gray-200 transition-colors p-1 min-w-13"><Pen/></button>
                     </div>

@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets:["latin"]
-})
-
+import LayoutClientWrapper from "@/components/LayoutClientWrapper";
+import { inter } from "@/lib/fonts";
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "PackTrip",
@@ -20,10 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${inter.variable}  antialiased`}
+      <body   
+        className={`${inter.variable}  antialiased min-h-screen flex flex-col`}
       >
-        {children}
+        <LayoutClientWrapper>
+                {children}
+                </LayoutClientWrapper>
+                <Toaster richColors position="bottom-right"   />
       </body>
     </html>
   );

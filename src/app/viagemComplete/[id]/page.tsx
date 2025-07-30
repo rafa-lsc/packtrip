@@ -25,13 +25,13 @@ export default function ViagemCompletePage({ params}: ViagemCompletePageProps) {
   }
 
     return (
-        <div className="min-h-screen bg-blue-500 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-r from-[#5de0e6] to-[#004aad] p-5 rounded-lg flex items-center justify-center h-screen overflow-hidden ">
             <div className="bg-white rounded-3xl shadow-xl  w-full max-w-xl mb-4 mt-2">
 
                 <div>
                     <div className="grid grid-cols-2 relative w-full h-18">
                         <button className="absolute left-5 top-1/2 -translate-y-1/2 border-2 pl-7 pr-7 pb-1 pt-1 text-primary rounded-2xl flex hover:bg-purple-100 transition-colors "> <ArrowLeft/> Voltar</button>
-                        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-3xl text-purple-950 ">{viagemdata.destination}</h1>
+                        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-3xl text-primary ">{viagemdata.destination}</h1>
                     </div>
                 </div>
                 
@@ -51,14 +51,24 @@ export default function ViagemCompletePage({ params}: ViagemCompletePageProps) {
                     </div>
 
                     <div className="ml-4 mt-5 grid grid-cols-2 gap-4 text-primary">
-                        <div className="">
-                        <h3 className="mb-1">Data de Partida: {viagemdata.date_in}</h3>
-                        <h3>Data de Volta: {viagemdata.date_out}</h3>
+                        <div>
+                        <div className="flex flex-row mb-1 gap-2">
+                        <h3 className="mb-1">Data de Partida:</h3>
+                        <h3 className="text-black">{viagemdata.date_in}</h3>
                         </div>
-                        <h3>Estadia/Hotel: {viagemdata.staying}</h3>
+                        <div className="flex flex-row mb-1 gap-2">
+                        <h3 className="mb-1">Data de Volta:</h3>
+                        <h3 className="text-black">{viagemdata.date_out}</h3>
+                        </div>
+                        </div>
+
+                         <div className="flex flex-row mb-1 gap-2">
+                        <h3 className="mb-1">Estadia/Hotel:</h3>
+                        <h3 className="text-black">{viagemdata.staying}</h3>
+                        </div>
                     </div>
                     
-                    <h3 className=" flex justify-center font-bold mt-12 text-primary text-bold">Pontos Turísticos a visitar</h3>
+                    <h3 className=" flex justify-center font-bold mt-6 text-primary text-bold text-lg">Pontos Turísticos a visitar</h3>
                     <h3 className="ml-4 mt-3 mb-6 ">{viagemdata.touristic}</h3>
 
                     <div className=" flex justify-center p-2 gap-6">

@@ -23,8 +23,8 @@ export default function MinhasViagensPage() {
                 > <Plus/> Cadastrar Viagem</button>
             </div>
             {/*Cards das viagens */}
-            <div className="flex justify-center bg-blue-500 p-5 rounded-lg shadow-md px-4 sm:px-8 md:px-12 xl:px-32 ">
-                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex justify-center bg-gradient-to-r from-[#5de0e6] to-[#004aad] p-5 rounded-lg shadow-md px-4 sm:px-8 md:px-12 xl:px-32 ">
+                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                     {viagensdatas.map((viagemdata) => (
                         <ViagensCard key={viagemdata.id} viagemdata={viagemdata} />
                     ))}

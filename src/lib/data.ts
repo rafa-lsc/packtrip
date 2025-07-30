@@ -7,7 +7,6 @@ export type ViagemData = {
     date_in: string
     date_out:string;
     touristic: string[];
-    
     staying: string;
 }
 export type ItemListType = {

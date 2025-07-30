@@ -9,7 +9,14 @@ export const viagemSchema = yup.object().shape({
   date_out: yup.string().required("Data de volta é obrigatória"),
   staying: yup.string().required("Hospedagem é obrigatória"),
   imageURl: yup.string().required("URL da imagem é obrigatória"),
-  touristic: yup.array().of(yup.string().required("Ponto turístico obrigatório")),
+  touristic: yup
+    .array()
+    .of(
+        yup.object({
+            value: yup.string().required("Ponto turístico obrigatório"),
+        })
+    )
+    .min(1, "Informe ao menos 1 ponto turístico").required(),
 });
 
-export type TripFormData = yup.InferType<typeof viagemSchema>;
+export type ViagemFormData = yup.InferType<typeof viagemSchema>;

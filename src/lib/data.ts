@@ -6,8 +6,7 @@ export type ViagemData = {
     category: string;
     date_in: string
     date_out:string;
-    touristic: string;
-    
+    touristic: string[];
     staying: string;
 }
 export type ItemListType = {
@@ -25,7 +24,7 @@ export const viagensdatas: ViagemData[] = [
         category: "Turismo",
         date_in: "02/07/2024",
         date_out:"16/07/2024",
-        touristic: "Tour Eiffel; Museu do Louvre",
+        touristic: ["Tour Eiffel","Museu do Louvre"],
         staying: "Hotel Paris",
     },
     {
@@ -35,7 +34,7 @@ export const viagensdatas: ViagemData[] = [
         category: "Intercâmbio",
         date_in: "01/12/2018",
         date_out: "03/07/2019",
-        touristic: "Rijksmuseum; Casa de Anne Frank",
+        touristic: ["Rijksmuseum"," Casa de Anne Frank"],
         staying: "Hotel Amsterdam",
     },
     {
@@ -45,7 +44,7 @@ export const viagensdatas: ViagemData[] = [
         category: "Trabalho",
         date_in: "29/10/2022",
         date_out:"05/11/2022",
-        touristic: "Torre de Belém; Castelo de São Jorge",
+        touristic: ["Torre de Belém", "Castelo de São Jorge"],
         staying: "Hotel Lisboa",
     }
 ]

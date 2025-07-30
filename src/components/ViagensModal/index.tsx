@@ -119,17 +119,34 @@ export default function ViagensModal({isOpen, onClose, onCreated}: ViagensModalP
                     </div>
 
 
-                {fields.map((field, index) => (
-                    <input
-                        key={field.id ?? index}
-                        {...register(`touristic.${index}.value` as const)}
-                        defaultValue={field.value}
-                        placeholder={`Ponto turístico #${index + 1}`}
-                        className="p-2 border-2 border-black"
-                    />
-                ))}
+                <div className="flex flex-col gap-2">
+                    <h2 className="font-medium"> Pontos Turísticos</h2>
+  
+                    {fields.map((field, index) => (
+                    <div key={field.id} className="flex items-center gap-2">
+                        <input
+                            {...register(`touristic.${index}.value` as const)}
+                            defaultValue={field.value}
+                            placeholder={`Ponto turístico #${index + 1}`}
+                            className="p-2 border-2 border-black flex-1"
+                        />
+                        {fields.length > 1 && (
+                            <button
+                                type="button"
+                                onClick={() => remove(index)}
+                                className="text-red-600 text-sm"
+                            >
+                                Remover
+                            </button>
+                        )}
+                    </div>
+                    ))}
 
-                    <button onClick={() => append({value:""})}>Adicionar ponto turistico</button>
+
+                </div>
+                    <button type="button" onClick={() => append({ value: "" })} className="text-sm text-indigo-700 underline w-fit">
+                        Adicionar ponto turístico
+                    </button>
 
                     <div className="flex justify-end gap-2 mt-4">
                         <Button type="button" onClick={onClose} className="bg-red-600 text-white">Cancelar</Button>

@@ -161,13 +161,13 @@ export default function ViagensModal({isOpen, onClose, onCreated}: ViagensModalP
 
                 </div>
                 <div className="pl-2 ">
-                    <button type="button" onClick={() => append({ value: "" })} className="text-sm bg-primary text-white p-3 rounded-lg w-fit ">
+                    <button type="button" onClick={() => append({ value: "" })} className="text-sm bg-primary text-white p-3 rounded-lg w-fit cursor-pointer ">
                         Adicionar ponto turístico
                     </button>
                 </div>
 
                     <div className="flex justify-end gap-4 mt-4">
-                        <button type="button" onClick={onClose} className="bg-white border-primary border-1 text-primary rounded-xl pr-6 pl-6 pb-4 pt-4">Cancelar</button>
+                        <button type="button" onClick={onClose} className="bg-white border-primary border-1 text-primary rounded-xl pr-6 pl-6 pb-4 pt-4 cursor-pointer">Cancelar</button>
                         <LargeButton text="Criar Viagem" />
                     </div>
 

@@ -10,7 +10,6 @@ import {
 import { Plus, Search } from "lucide-react";
 import ItemList from "@/components/ItemList/page";
 import { girassol } from "@/lib/fonts";
-import LayoutClientWrapper from "@/components/LayoutClientWrapper";
 import LargeButton from "@/components/LargeButton";
 import EditItemModal from "@/components/EditItemModal";
 import DeleteConfirmationModal from "@/components/DeleteItemConfirmationModal";

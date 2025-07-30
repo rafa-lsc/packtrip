@@ -30,7 +30,9 @@ export default function ViagemCompletePage({ params}: ViagemCompletePageProps) {
 
                 <div>
                     <div className="grid grid-cols-2 relative w-full h-18">
-                        <button className="absolute left-5 top-1/2 -translate-y-1/2 border-2 pl-7 pr-7 pb-1 pt-1 text-primary rounded-2xl flex hover:bg-purple-100 transition-colors "> <ArrowLeft/> Voltar</button>
+                        <Link href={"/viagens"}>
+                        <button className="absolute left-5 top-1/2 -translate-y-1/2 border-2 pl-7 pr-7 pb-1 pt-1 text-primary rounded-2xl flex hover:bg-purple-100 transition-colors gap-1"> <ArrowLeft/> Voltar</button>
+                        </Link>
                         <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-3xl text-primary ">{viagemdata.destination}</h1>
                     </div>
                 </div>
@@ -71,7 +73,7 @@ export default function ViagemCompletePage({ params}: ViagemCompletePageProps) {
                     <h3 className=" flex justify-center font-bold mt-6 text-primary text-bold text-lg">Pontos Turísticos a visitar</h3>
                     <h3 className="ml-4 mt-3 mb-6 ">{viagemdata.touristic}</h3>
 
-                    <div className=" flex justify-center p-2 gap-6">
+                    <div className=" flex justify-center p-2 gap-6 ">
                         <LargeButton text= "Delete" route="/viagens" icon = <Trash2/> />
                         <LargeButton text= "Editar" route="/viagens" icon = <Pen/> />
                     

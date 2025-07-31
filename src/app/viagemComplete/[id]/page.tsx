@@ -115,7 +115,7 @@ export default function ViagemCompletePage({ params}: ViagemCompletePageProps) {
                         ))}
                     </ul>
 
-                    <div className=" hidden sm:flex flex justify-center p-2 gap-6">
+                    <div className=" hidden sm:flex justify-center p-2 gap-6">
                         <LargeButton text="Excluir" icon={<Trash2 />} onClick={() => setIsDeleting(true)} />
                         <LargeButton text="Editar" icon={<Pen />} onClick={() => setIsEditing(true)} />
                     </div>

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import LayoutClientWrapper from "@/components/LayoutClientWrapper";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { inter } from "@/lib/fonts";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "PackTrip",
@@ -16,13 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body   
+      <body
         className={`${inter.variable}  antialiased min-h-screen flex flex-col`}
       >
-        <LayoutClientWrapper>
-                {children}
-                </LayoutClientWrapper>
-                <Toaster richColors position="bottom-right"   />
+        <Header />
+        <main className="flex-1 flex flex-col">{children}</main>
+        <Footer />
+        <Toaster richColors position="bottom-right" />
       </body>
     </html>
   );

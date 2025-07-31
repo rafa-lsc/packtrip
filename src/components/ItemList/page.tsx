@@ -43,7 +43,7 @@ export default function ItemList({
       <div className="flex items-center gap-3">
         <input
           type="checkbox"
-          className="outline-0 border border-primary size-5 text-[#0c70b6]"
+          className="cursor-pointer outline-0 border border-primary size-5 text-[#0c70b6]"
           checked={checked}
           onChange={handleCheck}
         />

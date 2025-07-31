@@ -5,14 +5,15 @@ interface LargeButtonProps {
   text: string;
   route?: string;
   onClick?: () => void;
-  icon?: ReactNode;
+  icon?: ReactNode; 
+
 }
 
-export default function LargeButton({ text, route, onClick, icon }: LargeButtonProps) {
+export default function LargeButton({ text, route, onClick, icon, }: LargeButtonProps) {
   const ButtonContent = (
-    <button
+    <button 
       onClick={onClick}
-      className={` ${poppins.className} bg-primary text-white px-6 py-2 rounded-xl sm:text-lg text-base font-semibold flex items-center gap-2 hover:opacity-90 transition`}
+      className={` ${poppins.className} cursor-pointer bg-primary text-white px-6 py-2 rounded-xl sm:text-lg text-base font-semibold flex items-center gap-2 hover:opacity-90 transition`}
     >
       {icon && <span className="flex items-center">{icon}</span>}
       <span>{text}</span>

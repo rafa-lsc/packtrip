@@ -13,6 +13,8 @@ import { viagemAPI } from "@/lib/storageApi/viagem";
 import { girassol } from "@/lib/fonts";
 import { poppins } from "@/lib/fonts";
 
+import { useEffect } from "react";
+
 
 
 interface ViagensModalProps {
@@ -35,6 +37,12 @@ export default function ViagensModal({isOpen, onClose, onCreated}: ViagensModalP
     touristic: [{value: ""}],
   },
 });
+
+useEffect(() => {
+  console.log("Erros de validação:", JSON.stringify(errors, null, 2));
+}, [errors]);
+
+
   
   const { fields, append, remove } = useFieldArray({
   control,
@@ -43,6 +51,8 @@ export default function ViagensModal({isOpen, onClose, onCreated}: ViagensModalP
 
 
   const onSubmit = (data: ViagemFormData) => {
+    console.log("Submissão OK:", data);
+
   const novaViagem: ViagemData = {
     id: crypto.randomUUID(),
     destination: data.destination,
@@ -51,7 +61,7 @@ export default function ViagensModal({isOpen, onClose, onCreated}: ViagensModalP
     date_out: data.date_out,
     staying: data.staying,
     imageURl: data.imageURl,
-    touristic: data.touristic.map((item) => item.value), // <- transforma [{value:"x"}] em ["x"]
+    touristic: data.touristic.map((item) => item.value), 
   };
 
     try {
@@ -150,7 +160,7 @@ export default function ViagensModal({isOpen, onClose, onCreated}: ViagensModalP
                             <button
                                 type="button"
                                 onClick={() => remove(index)}
-                                className="text-primary text-xs border-primary border-2 rounded-lg pl-6 pr-6 pt-2 pb-2"
+                                className="text-primary text-xs border-primary border-2 rounded-lg pl-6 pr-6 pt-2 pb-2 cursor-pointer"
                             >
                                 Remover
                             </button>
@@ -161,14 +171,20 @@ export default function ViagensModal({isOpen, onClose, onCreated}: ViagensModalP
 
                 </div>
                 <div className="pl-2 ">
-                    <button type="button" onClick={() => append({ value: "" })} className="text-sm bg-primary text-white p-3 rounded-lg w-fit cursor-pointer ">
+                    <button type="button" onClick={() => append({ value: "" })} className="text-sm bg-primary text-white p-3 rounded-lg w-fit cursor-pointer hover:opacity-90 ">
                         Adicionar ponto turístico
                     </button>
                 </div>
 
                     <div className="flex justify-end gap-4 mt-4">
-                        <button type="button" onClick={onClose} className="bg-white border-primary border-1 text-primary rounded-xl pr-6 pl-6 pb-4 pt-4 cursor-pointer">Cancelar</button>
-                        <LargeButton text="Criar Viagem" />
+                        <Button size={"lg"}  type="button" onClick={onClose} className="bg-white border-primary border-1 text-primary rounded-xl  pb-4 pt-4 cursor-pointer hover:bg-indigo-50">Cancelar</Button>
+                        <button
+                            type="submit"
+                            className="bg-primary text-white px-6 py-2 rounded-xl sm:text-lg text-base font-semibold hover:opacity-90 transition cursor-pointer"
+                        >
+                            Criar Viagem
+                        </button>
+
                     </div>
 
             </form>

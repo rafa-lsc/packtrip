@@ -3,13 +3,54 @@
 import Link from "next/link";
 import ViagensCard from "@/components/ViagensCard/page";
 import { viagensdatas } from "@/lib/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 import ViagensModal from "@/components/ViagensModal";
+import EditViagemModal from "@/components/EditViagemModal";
+import DeleteViagemModal from "@/components/DeleteViagensModal";
+import { viagemAPI } from "@/lib/storageApi/viagem";
+import { ViagemData } from "@/lib/data";
 
 
-export default function MinhasViagensPage() {
+
+
+export default function MinhasViagensPage(){
     const [isViagensModalOpen, setIsViagensModalOpen] = useState(false);
+    const [viagens, setViagens] = useState<ViagemData[]>([]);
+    const [editingViagem, setEditingViagem] = useState<ViagemData | null>(null);
+    const [deletingViagem, setDeletingViagem] = useState<ViagemData | null>(null);
+
+
+    useEffect(() => {
+        const locais = viagemAPI.get();
+        const todas = [...viagensdatas, ...locais];
+        setViagens(todas);
+    }, []);
+
+
+    const reloadData = () => {
+        const locais = viagemAPI.get();
+        const todas = [...viagensdatas, ...locais];
+        setViagens(todas);
+    };
+
+
+    const handleDelete = () => {
+        if (deletingViagem) {
+            viagemAPI.delete(deletingViagem.id);
+            setDeletingViagem(null);
+            reloadData();
+        }
+    };
+
+    const handleEdit = (updated: ViagemData) => {
+        viagemAPI.update(updated);
+        setEditingViagem(null);
+        reloadData(); ;
+    };
+
+
+
 
 
     return(
@@ -23,17 +64,22 @@ export default function MinhasViagensPage() {
                 > <Plus/> Cadastrar Viagem</button>
             </div>
             {/*Cards das viagens */}
-            <div className="flex justify-center bg-gradient-to-r from-[#5de0e6] to-[#004aad] p-5 rounded-lg shadow-md px-4 sm:px-8 md:px-12 xl:px-32 ">
-                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-                    {viagensdatas.map((viagemdata) => (
-                        <ViagensCard key={viagemdata.id} viagemdata={viagemdata} />
+            <div className=" bg-gradient-to-r from-[#5de0e6] to-[#004aad] p-5 rounded-lg shadow-md px-4  w-full  ">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4 justify-items-center w-full xl:grid-cols-3 max-sm:justify-center">
+                    {viagens.map((viagemdata) => (
+                        <ViagensCard key={viagemdata.id} viagemdata={viagemdata} onEdit={() => setEditingViagem(viagemdata)}
+                             onDelete={() => setDeletingViagem(viagemdata)} />
                     ))}
                 </div>
             </div>
 
 
 
-        <ViagensModal isOpen={isViagensModalOpen} onClose={() => setIsViagensModalOpen(false)} />
+        <ViagensModal isOpen={isViagensModalOpen} onClose={() => setIsViagensModalOpen(false)} onCreated={reloadData} />
+
+        <EditViagemModal isOpen={!!editingViagem} item={editingViagem} onClose={() => setEditingViagem(null)} onSave={handleEdit} />
+        <DeleteViagemModal isOpen={!!deletingViagem} item={deletingViagem} onClose={() => setDeletingViagem(null)} onConfirm={handleDelete} />
+
         </div>
     )
 

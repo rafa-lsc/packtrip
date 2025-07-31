@@ -2,7 +2,6 @@ import * as yup from "yup";
 import { ViagemData } from "@/lib/data";
 
 export const viagemSchema = yup.object().shape({
-  id: yup.string().required(), // será preenchido com uuid
   destination: yup.string().required("Destino é obrigatório"),
   category: yup.string().required("Categoria é obrigatória"),
   date_in: yup.string().required("Data de ida é obrigatória"),

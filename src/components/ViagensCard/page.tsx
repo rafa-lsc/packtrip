@@ -34,8 +34,8 @@ interface ViagemCardProps{
                         >
                          <Eye/> Ver Detalhes
                         </Link>
-                        <button className=" flex items-center justify-center ml-2 border-2 border-primary rounded-md hover:bg-gray-200 transition-colors p-1 min-w-13 "> <Trash2 className="text-primary"/></button>
-                        <button className="flex items-center justify-center ml-2 border-2 border-primary rounded-md hover:bg-gray-200 transition-colors p-1 min-w-13"><Pen className="text-primary"/></button>
+                        <button className=" flex items-center justify-center ml-2 border-2 border-primary rounded-md hover:bg-gray-200 transition-colors p-1 min-w-13 cursor-pointer"> <Trash2 className="text-primary"/></button>
+                        <button className="flex items-center justify-center ml-2 border-2 border-primary rounded-md hover:bg-gray-200 transition-colors p-1 min-w-13 cursor-pointer"><Pen className="text-primary"/></button>
                     </div>
 
 

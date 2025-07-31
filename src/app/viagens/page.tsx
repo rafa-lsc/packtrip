@@ -19,7 +19,7 @@ export default function MinhasViagensPage() {
             <div className="flex justify-center mb-5 mt-3">
                 <button
                     onClick={() => setIsViagensModalOpen(true)} 
-                    className=" bg-primary text-white px-6 py-2 rounded-xl sm:text-lg text-base font-semibold flex items-center gap-2 hover:opacity-90 transition"  
+                    className=" cursor-pointer bg-primary text-white px-6 py-2 rounded-xl sm:text-lg text-base font-semibold flex items-center gap-2 hover:opacity-90 transition"  
                 > <Plus/> Cadastrar Viagem</button>
             </div>
             {/*Cards das viagens */}

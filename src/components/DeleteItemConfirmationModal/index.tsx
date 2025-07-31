@@ -24,7 +24,7 @@ export default function DeleteItemModal({ isOpen, onClose, onConfirm, item }: De
 
         <div className="flex justify-end gap-2">
 
-          <Button onClick={onClose} type="button" className="h-full bg-red-600 text-white" variant="outline">Cancelar</Button>
+          <Button onClick={onClose} type="button" className="h-full bg-red-600 text-white cursor-pointer" variant="outline">Cancelar</Button>
               <LargeButton onClick={onConfirm} text="Excluir"/>
         </div>
       </DialogContent>

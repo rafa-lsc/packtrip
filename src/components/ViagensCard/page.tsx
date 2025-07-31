@@ -29,7 +29,7 @@ interface ViagemCardProps{
                         <h3>{viagemdata.category}</h3>
                     </div>
                     <h2 className="font-bold text-purple-1100 text-2xl ml-3 mt-4 "> {viagemdata.destination}</h2>
-                    <div className="ml-3 mb-2 mt-3 mr-3 text-sm flex   "> 
+                    <div className="ml-3 mb-2 mt-3 mr-3 text-sm flex sm:flex-row flex-col gap-1   "> 
                         <Link
                             href={`viagemComplete/${viagemdata.id}`}
                             className=" w-full items-center px-4 py-2 bg-primary text-white rounded-lg hover:opacity-90 transition-colors flex-row flex gap-2 whitespace-nowrap"
@@ -37,7 +37,7 @@ interface ViagemCardProps{
                          <Eye/> Ver Detalhes
                         </Link>
 
-                        <div className="hidden sm:flex gap-2">
+                        <div className="flex gap-2 justify-start">
                             <button
                                 onClick={onDelete}
                                 className=" flex items-center justify-center ml-2 border-2 border-primary rounded-md hover:bg-gray-200 transition-colors p-1 min-w-13 cursor-pointer"

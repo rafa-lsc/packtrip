@@ -67,10 +67,10 @@ export default function ViagemCompletePage({ params}: ViagemCompletePageProps) {
                 <div>
                     <div className="grid grid-cols-2 relative w-full h-18">
                         <Link href={"/viagens"}>
-                        <button className="absolute left-5 top-1/2 -translate-y-1/2 border-2 pl-7 pr-7 pb-1 pt-1 text-primary rounded-2xl  hover:bg-indigo-50 transition-colors gap-1 cursor-pointer sm:flex hidden">
-                         <ArrowLeft/> Voltar</button>
+                        <button className="absolute left-5 top-1/2 -translate-y-1/2 border-2 sm:pl-7 sm:pr-7 pb-1 pt-1 text-primary rounded-2xl  hover:bg-indigo-50 transition-colors gap-1 cursor-pointer flex ">
+                         <ArrowLeft/> <span className="hidden sm:block">Voltar</span></button>
                         </Link>
-                        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-3xl text-primary ">{viagemdata.destination}</h1>
+                        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-2xl text-primary ">{viagemdata.destination}</h1>
                     </div>
                 </div>
                 
@@ -115,7 +115,7 @@ export default function ViagemCompletePage({ params}: ViagemCompletePageProps) {
                         ))}
                     </ul>
 
-                    <div className=" hidden sm:flex justify-center p-2 gap-6">
+                    <div className="flex-col flex sm:flex-row justify-center p-2 gap-1 sm:gap-6">
                         <LargeButton text="Excluir" icon={<Trash2 />} onClick={() => setIsDeleting(true)} />
                         <LargeButton text="Editar" icon={<Pen />} onClick={() => setIsEditing(true)} />
                     </div>

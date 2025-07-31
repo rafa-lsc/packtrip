@@ -39,7 +39,7 @@ export default function ViagensModal({isOpen, onClose, onCreated}: ViagensModalP
 });
 
 useEffect(() => {
-  console.log("Erros de validação:", JSON.stringify(errors, null, 2));
+  console.log("Erros de validação:", errors);
 }, [errors]);
 
 
